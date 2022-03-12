@@ -1,7 +1,7 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 #include <vector>
-using namespace std;
+using std::vector;
 
 unsigned int faStr1(const char *str) {
     unsigned int k = 0;
