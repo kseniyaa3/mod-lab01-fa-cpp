@@ -51,13 +51,11 @@ unsigned int faStr3(const char *str) {
         }
     }
     v.push_back(k);
-   
     unsigned int sum = 0;
     unsigned int len = v.size();
     for (int i = 0; i < v.size(); i++) {
-        if (v[i] != 0) {
+        if (v[i] != 0)
             sum += v[i];
-        }
         else
             len -= 1;
     }
