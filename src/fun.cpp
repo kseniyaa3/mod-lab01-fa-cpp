@@ -30,8 +30,7 @@ unsigned int faStr2(const char *str) {
                 b = true;
             else
                 b = false;
-        }
-        else if ((*str <= 'a' || *str >= 'z') && *str != ' ') {
+        } else if ((*str <= 'a' || *str >= 'z') && *str != ' ') {
             b = false;
         }
         if (*str == ' ' || *str == '\t') {
