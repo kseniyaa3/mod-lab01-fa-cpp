@@ -5,16 +5,16 @@ using std::vector;
 
 unsigned int faStr1(const char *str) {
     unsigned int k = 0;
-    bool b = false;
+    bool b = true;
     for (; *str != '\0'; str++) {
         if (*str >= '0' && *str <= '9') {
-            if (b == false) {
-                b = true;
-                k += 1;
-            }
+            b = true;
         }
         if (*str == ' ' || *str == '\t') {
-            b = false;
+            if (b == false && *(str-1) != ' ')
+                k += 1;
+            else
+                b = false;
         }
     }
     return k;
@@ -23,18 +23,23 @@ unsigned int faStr1(const char *str) {
 unsigned int faStr2(const char *str) {
     unsigned int k = 0;
     bool b = false;
+    char c = ' ';
     for (; *str != '\0'; str++) {
-        if (*str >= 'A' && *str <= 'Z' || *str >= 'a' && *str <= 'z') {
-            if (b == false) {
+        if (*str >= 'A' && *str <= 'Z') {
+            if (c == ' ')
                 b = true;
-                if (*str >= 'A' && *str <= 'Z') {
-                    k += 1;
-                }
-            }
+            else
+                b = false;
         }
-        if (*str == ' ' || *str == '\t') {
+        else if ((*str <= 'a' || *str >= 'z') && *str != ' ') {
             b = false;
         }
+        if (*str == ' ' || *str == '\t') {
+            if (b == true)
+                k += 1;
+            b = false;
+        }
+        c = *str;
     }
     return k;
 }
